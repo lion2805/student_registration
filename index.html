@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Student Registration File Viewer</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      margin: 20px;
+      background-color: #f9f9f9;
+    }
+    pre {
+      background: #eee;
+      padding: 15px;
+      border: 1px solid #ccc;
+      border-radius: 5px;
+      overflow-x: auto;
+    }
+    h1 {
+      color: #333;
+    }
+  </style>
+</head>
+<body>
+  <h1>Student Registration File</h1>
+  <p>Below is the content of your file:</p>
+  <pre id="file-content">
+    <!-- The file content will go here -->
+  </pre>
+  <script>
+    // Fetch the file and display its content
+    fetch('student_registration.txt')
+      .then(response => response.text())
+      .then(data => {
+        document.getElementById('file-content').textContent = data;
+      })
+      .catch(error => {
+        document.getElementById('file-content').textContent = "Error loading file: " + error;
+      });
+  </script>
+</body>
+</html>
